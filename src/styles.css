@@ -76,3 +76,75 @@ footer{text-align:center;border-top:1px solid #151b23;padding:28px;color:#485364
 .admin-table-wrap{overflow:auto;border:1px solid #202733;border-radius:9px;background:#0d1117}table{width:100%;border-collapse:collapse;min-width:800px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #1c232d;font-size:11px}th{color:#626d7d;font-size:9px;letter-spacing:.12em}tbody tr:hover{background:#111720}.table-item{display:flex;align-items:center;gap:12px}.table-item .item-visual{width:58px;height:45px}.rarity-pill{color:var(--rarity);font-weight:800;font-size:10px}.enabled{color:#65d28a}.disabled{color:#697485}.row-actions{display:flex;gap:7px}.row-actions button{border:1px solid #303947;background:#151b23;color:#cbd2dc;border-radius:5px;padding:7px 9px;font-size:9px;font-weight:800}.row-actions .danger{color:#ff7373}
 .modal-backdrop{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;padding:20px;z-index:30}.modal{width:min(520px,100%);background:#11161e;border:1px solid #303a48;border-radius:10px;padding:22px;box-shadow:0 30px 100px #000}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-head h2{font-size:15px}.modal-head button{border:0;background:none;color:#9ba6b5;font-size:25px}.modal label{display:block;color:#7f8a99;font-size:10px;font-weight:800;margin-top:13px}.modal label input,.modal label select{width:100%;margin-top:7px}.check{display:flex!important;align-items:center;gap:8px}.check input{width:auto!important;margin:0!important}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:22px}
 @media(max-width:800px){.topbar{padding:0 15px}.topbar nav button{padding:9px;font-size:9px}.case-selector{grid-template-columns:1fr;gap:9px}.case-choice{padding:13px 16px}.case-choice>span{float:left;margin:0 11px 0 0;font-size:23px}.hero{grid-template-columns:1fr}.case-card{position:static}.case-box{height:130px}.main{padding:25px 12px}.roulette-frame{height:220px}.reel-card{width:125px;flex-basis:125px}.reel-card .item-visual{height:112px}.result-card{flex-direction:column;align-items:stretch}.result-card .item-visual{width:100%;height:180px}.result-kicker{position:static;margin:0}.admin-head{align-items:flex-start;flex-direction:column}.admin-actions{width:100%}.admin-actions button{flex:1}.admin-tabs{overflow:auto}.admin-tabs button{white-space:nowrap}.admin-toolbar{flex-direction:column}.admin-toolbar select{width:100%}}
+/* ==========================================
+   TỐI ƯU GIAO DIỆN TRÊN ĐIỆN THOẠI (MOBILE)
+   ========================================== */
+
+/* 1. Xử lý ảnh không bị viền đen hai bên */
+.item-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo ảnh phủ kín khung, không bị méo hay tạo khoảng đen */
+  border-radius: 6px;
+}
+
+/* 2. Cấu hình riêng cho màn hình điện thoại (dưới 768px) */
+@media (max-width: 768px) {
+  /* Tối ưu thanh Menu trên cùng không bị xô lệch */
+  .topbar {
+    flex-wrap: wrap;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  
+  .topbar nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .topbar nav button {
+    flex: 1;
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 13px;
+  }
+
+  /* Khóa cố định chiều cao khung quay (Tránh bị tràn chiều dọc như mũi tên chỉ) */
+  .roulette-frame {
+    height: 170px !important;
+    padding: 10px 0;
+  }
+
+  /* Tối ưu kích thước thẻ vật phẩm bên trong vòng quay */
+  .reel-card {
+    min-width: 130px !important;
+    max-width: 130px !important;
+    height: 150px !important;
+    padding: 8px !important;
+    box-sizing: border-box;
+  }
+
+  .reel-card .item-visual {
+    height: 85px !important;
+    width: 100%;
+  }
+
+  .reel-name {
+    font-size: 13px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Tối ưu ô hiển thị kết quả "BẠN NHẬN ĐƯỢC" */
+  .result-card {
+    padding: 16px !important;
+  }
+
+  .result-card .item-visual {
+    height: 160px !important;
+    width: 100% !important;
+  }
+}
